@@ -1,10 +1,17 @@
 variable "db_user" {
-  type    = string
-  default = "admin"
+  description = "DB user"
+  type        = string
+  default     = "admin"
 }
 
-# variable "db_pass" {
-#   description = "Password for DB"
-#   type        = string
-#   sensitive   = true
-# }
+variable "db_pass" {
+  description = "DB password"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_host" {
+  description = "DB host"
+  type        = string
+  default     = "localhost"
+}

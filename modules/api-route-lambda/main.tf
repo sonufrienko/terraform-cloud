@@ -14,7 +14,7 @@ terraform {
 }
 
 locals {
-  lambda_runtime = "nodejs14.x"
+  lambda_runtime = "nodejs16.x"
   lambda_handler = "list.handler"
 }
 
@@ -64,7 +64,10 @@ resource "aws_lambda_function" "lambda" {
 
   environment {
     variables = {
-      DB_URL = "bar"
+      DB_HOST = var.db_host
+      DB_USER = var.db_user
+      DB_PASS = var.db_pass
+      # S3_BUCKET = self.s3_bucket
     }
   }
 }
